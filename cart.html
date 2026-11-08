@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>سلة المشتريات | مطبخ حلويات حلا</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Header Navbar -->
+<header class="top">
+  <div class="max-w-6xl mx-auto flex items-center justify-between gap-3 px-4 py-2.5">
+    <a href="#home" class="flex items-center gap-2.5 min-w-0 flex-1" aria-label="حلويات حلا" id="brandLogoBtn">
+      <span class="logo"><img src="images/hala_logo.png" alt="مطبخ حلا" class="w-full h-full object-cover"></span>
+      <div>
+        <span class="font-black text-lg block leading-tight" style="color:var(--brown)">حلويات حلا • Hala Sweets</span>
+        <span class="text-xs font-bold block" style="color:var(--green)">🌾 من الفرن لبيتك.. طعم يدفي القلب • عادي وحبة كاملة</span>
+      </div>
+    </a>
+    <nav class="nav hidden lg:flex gap-1" aria-label="التنقل الرئيسي">
+      <a href="#home">الرئيسية</a>
+      <a href="#menu">المنيو الصحي</a>
+      <a href="#why-wholegrain">ليه الحبة الكاملة؟</a>
+      <a href="#reviews-sec">آراء العملاء</a>
+      <a href="#contact">تواصل معنا</a>
+    </nav>
+    <div class="flex items-center gap-1.5 sm:gap-2 flex-none">
+      <button class="cartbtn" id="themeToggle" aria-label="تبديل المظهر" title="الوضع الليلي / النهاري">🌙</button>
+      <button class="cartbtn" id="openCart" aria-label="فتح السلة">🛒 السلة <span class="badge" id="count">0</span></button>
+      <button class="cartbtn btn-admin !text-xs !py-2" id="adminSwitchBtn" title="لوحة تحكم الأدمن والطلبات">🔐 الإدارة</button>
+      <button class="cartbtn lg:hidden" id="burger" aria-label="القائمة">☰</button>
+    </div>
+  </div>
+  <nav id="mnav" class="nav hidden lg:hidden flex-col px-4 pb-3 border-t" style="border-color:var(--line)" aria-label="قائمة الجوال">
+    <a href="#home">الرئيسية</a>
+    <a href="#menu">المنيو الصحي</a>
+    <a href="#why-wholegrain">ليه الحبة الكاملة؟</a>
+    <a href="#reviews-sec">آراء العملاء</a>
+    <a href="#contact">تواصل معنا</a>
+  </nav>
+</header>
+
+<!-- Main Store View -->
+<div id="storeView">
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="max-w-6xl mx-auto px-4 py-10 md:py-16 grid md:grid-cols-12 gap-8 items-center">
+      <div class="md:col-span-7">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-extrabold mb-4" style="background:var(--green-bg);color:var(--green)">
+          <span>✨ مخبوزات وحلويات صحية 100%</span>
+          <span>•</span>
+          <span>بدون دقيق أبيض وبدون سكر مكرر</span>
+        </div>
+        <h1 class="font-black leading-tight" style="font-size:clamp(2rem,5vw,3.3rem);color:var(--brown)">
+          حلويات حلا.. <br>
+          <span style="color:var(--rose)">حلا طعم يحلي حياتك</span> بالحبة الكاملة! 🌾
+        </h1>
+        <p class="mt-4 text-base md:text-lg max-w-xl leading-relaxed" style="color:var(--muted)">
+          استمتع بأشهى البراونيز، كوكيز الشوفان، الكب كيك المزين، وصواني الميني بيتزا المخبوزة طازجة لطلبك بـ <b style="color:var(--ink)">دقيق القمح الكامل والشوفان</b> وبدائل التحلية الطبيعية.. طعم يفرّحك من غير أي تأنيب ضمير!
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="#menu" class="btn text-base md:text-lg">تصفح المنيو واطلب 🍪</a>
+          <button id="heroBotBtn" class="btn btn-ghost text-base">🤖 احسب سعراتك بالـ AI</button>
+          <a href="https://wa.me/201285026373" target="_blank" rel="noopener noreferrer" class="btn btn-wa text-base">واتساب مباشر 💬</a>
+        </div>
+        <div class="mt-8 grid grid-cols-3 gap-3 max-w-lg pt-4 border-t" style="border-color:var(--line)">
+          <div>
+            <div class="font-black text-xl" style="color:var(--green)">100%</div>
+            <div class="text-xs font-bold" style="color:var(--muted)">دقيق حبة كاملة وشوفان</div>
+          </div>
+          <div>
+            <div class="font-black text-xl" style="color:var(--rose)">طازج يومياً</div>
+            <div class="text-xs font-bold" style="color:var(--muted)">يُخبز مخصوص لطلبك</div>
+          </div>
+          <div>
+            <div class="font-black text-xl" style="color:var(--brown)">دفع مرن</div>
+            <div class="text-xs font-bold" style="color:var(--muted)">فودافون كاش أو عند الاستلام</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="md:col-span-5">
+        <div class="hero-card">
+          <div class="grid grid-cols-2 gap-1 p-2" style="background:var(--sand)">
+            <img src="images/pizza.jpg" alt="ميني بيتزا بالحبة الكاملة" class="rounded-2xl h-40 w-full object-cover">
+            <img src="images/brownie.jpg" alt="بوكس براونيز صحي بالحبة الكاملة" class="rounded-2xl h-40 w-full object-cover">
+            <img src="images/cookie.jpg" alt="كوكيز الشوفان والحبة الكاملة" class="rounded-2xl h-40 w-full object-cover">
+            <img src="images/cupcake.jpg" alt="كب كيك صحي بالحبة الكاملة" class="rounded-2xl h-40 w-full object-cover">
+          </div>
+          <div class="p-4 flex items-center justify-between" style="background:var(--surface)">
+            <div>
+              <div class="font-black text-sm" style="color:var(--brown)">الأكثر طلباً على صفحتنا ⭐</div>
+              <div class="text-xs" style="color:var(--muted)">كب كيك • براونيز • كوكيز • كب السعادة • قشطوطة • مخبوزات • سينابون</div>
+            </div>
+            <a href="https://www.facebook.com/MohamedElsagher0" target="_blank" rel="noopener noreferrer" class="text-xs font-extrabold px-3 py-1.5 rounded-full" style="background:var(--sand);color:var(--brown)">صفحتنا ع فيسبوك ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Value Props -->
+  <section class="max-w-6xl mx-auto px-4 py-6">
+    <div class="grid md:grid-cols-3 gap-5">
+      <div class="why">
+        <div class="ic">🌾</div>
+        <h3 class="font-extrabold text-xl">مصنوع بالحبة الكاملة 100%</h3>
+        <p class="mt-1 text-sm leading-relaxed" style="color:var(--muted)">دقيق القمح الكامل والشوفان الطبيعي الغني بالألياف والفيتامينات، لشبع يدوم طويلاً بدون أي خمول أو ارتفاع مفاجئ في السكر.</p>
+      </div>
+      <div class="why">
+        <div class="ic">🍫</div>
+        <h3 class="font-extrabold text-xl">شوكولاتة دارك وبدائل صحية</h3>
+        <p class="mt-1 text-sm leading-relaxed" style="color:var(--muted)">شوكولاتة داكنة 70%، عين جمل محمص، واختيارك للتحلية بـ (عسل نحل طبيعي، سكر ستيفيا زيرو كالوري، أو دبس تمر) حسب نظامك.</p>
+      </div>
+      <div class="why">
+        <div class="ic">💳</div>
+        <h3 class="font-extrabold text-xl">دفع فوري أو عند الاستلام</h3>
+        <p class="mt-1 text-sm leading-relaxed" style="color:var(--muted)">ادفع بسهولة عبر <b>محفظة فودافون كاش</b> أو ادفع <b>كاش عند الاستلام</b> للمندوب وقت وصول طلبك طازجاً.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu Section -->
+  <section id="menu" class="max-w-6xl mx-auto px-4 py-10">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+      <div>
+        <span class="text-xs font-extrabold uppercase px-3 py-1 rounded-full" style="background:var(--sand);color:var(--brown)">منيو المخبوزات والحلويات</span>
+        <h2 class="font-black text-3xl md:text-4xl mt-2" style="color:var(--brown)">قائمة حلويات ومخبوزات حلا</h2>
+        <p style="color:var(--muted)" class="mt-1 text-sm md:text-base">المنيو الرسمي المعتمد لمطبخ حلا — اختار نكهتك والصوص المفضل واطلب فوراً بدون إنشاء حساب.</p>
+      </div>
+      <div class="w-full md:w-72">
+        <input type="search" id="searchInput" class="field" placeholder="🔍 ابحث عن كب كيك، براونيز، قشطوطة، قراقيش، سينابون...">
+      </div>
+    </div>
+
+    <div id="filters" class="flex flex-wrap gap-2 mt-6" role="tablist" aria-label="أقسام المنيو"></div>
+    <div id="dietFilters" class="flex flex-wrap items-center gap-2 mt-3 pb-4 border-b" style="border-color:var(--line)"></div>
+
+    <div id="grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6"></div>
+  </section>
+
+  <!-- Comparison Section -->
+  <section id="why-wholegrain" class="max-w-6xl mx-auto px-4 py-10">
+    <div class="rounded-3xl p-6 md:p-10 border" style="background:var(--surface);border-color:var(--line)">
+      <div class="text-center max-w-2xl mx-auto mb-8">
+        <h2 class="font-black text-2xl md:text-3xl" style="color:var(--brown)">ليه تختار حلويات ومخبوزات الحبة الكاملة؟</h2>
+        <p class="text-sm mt-2" style="color:var(--muted)">مقارنة سريعة توضح لك الفرق الصحي بين خامات مطبخ حلا والمخبوزات العادية في السوق.</p>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full text-right border-collapse text-sm md:text-base">
+          <thead>
+            <tr class="border-b-2" style="border-color:var(--line);color:var(--brown)">
+              <th class="py-3 px-4">المعيار</th>
+              <th class="py-3 px-4 rounded-tr-xl" style="background:var(--green-bg);color:var(--green)">🌾 حلويات حلا (Hala Sweets)</th>
+              <th class="py-3 px-4" style="color:var(--muted)">المخبوزات والحلويات التقليدية</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y" style="border-color:var(--line)">
+            <tr>
+              <td class="py-3 px-4 font-bold">نوع الدقيق</td>
+              <td class="py-3 px-4 font-bold" style="background:var(--green-bg);color:var(--green)">قمح كامل بالحبة الكاملة وشوفان 100% غني بالألياف</td>
+              <td class="py-3 px-4" style="color:var(--muted)">دقيق أبيض مكرر منزوع الفائدة والقشرة</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-bold">التحلية والدهون</td>
+              <td class="py-3 px-4 font-bold" style="background:var(--green-bg);color:var(--green)">عسل نحل طبيعي، ستيفيا، تمر، شوكولاتة دارك 70% وزيت زيتون</td>
+              <td class="py-3 px-4" style="color:var(--muted)">سكر أبيض مصنع بكميات ضخمة وسمن مهدرج</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-bold">الشبع ومستوى السكر</td>
+              <td class="py-3 px-4 font-bold" style="background:var(--green-bg);color:var(--green)">مؤشر سكري منخفض وطاقة ثابتة وشبع مستمر</td>
+              <td class="py-3 px-4" style="color:var(--muted)">ارتفاع حاد في الأنسولين يليه هبوط وخمول وجوع سريع</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-bold">اللانش بوكس والدايت</td>
+              <td class="py-3 px-4 font-bold rounded-br-xl" style="background:var(--green-bg);color:var(--green)">مثالي وصحي جداً للأطفال في المدرسة والرياضيين ومتابعي الدايت</td>
+              <td class="py-3 px-4" style="color:var(--muted)">سعرات فارغة غير مناسبة للنظام الصحي اليومي</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customer Reviews Section -->
+  <section id="reviews-sec" class="py-12" style="background:var(--surface-alt)">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8">
+        <div>
+          <h2 class="font-black text-2xl md:text-3xl" style="color:var(--brown)">⭐ تقييمات وآراء العملاء</h2>
+          <p class="text-sm mt-1" style="color:var(--muted)">عملاؤنا يشاركون تجاربهم الحقيقية مع مخبوزات وحلويات حلا.</p>
+        </div>
+        <div>
+          <button class="btn" id="openReviewModalBtn">✍️ قيّمنا واكتب رأيك</button>
+        </div>
+      </div>
+      <div id="reviewsList" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+    </div>
+  </section>
+</div>
+
+<!-- Admin Dashboard View -->
+<div id="adminView" class="hidden">
+  <div class="max-w-6xl mx-auto px-4 py-8">
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 border-b" style="border-color:var(--line)">
+      <div>
+        <span class="px-3 py-1 rounded-full text-xs font-black" style="background:#DBEAFE;color:#1E40AF">لوحة تحكم الإدارة الآمنة 🔐</span>
+        <h1 class="text-3xl font-black mt-2" style="color:var(--brown)">إدارة متجر مطبخ حلا</h1>
+        <p class="text-sm" style="color:var(--muted)">متابعة الطلبات اللحظية، إضافة وتعديل الأسعار والمنتجات، وتحليلات المبيعات بالـ AI.</p>
+      </div>
+      <div class="flex items-center gap-2">
+        <button class="btn btn-ghost text-sm" id="backToStoreBtn">🛍️ الرجوع للمتجر</button>
+        <button class="btn btn-ghost text-sm text-red-600 !border-red-400" id="adminLogoutBtn">خروج</button>
+      </div>
+    </div>
+
+    <!-- Admin Navigation Tabs -->
+    <div class="flex flex-wrap gap-2 mt-6">
+      <button class="tab-btn active" data-tab="ordersTab">📦 الطلبات والمبيعات (<span id="adminOrdersCount">0</span>)</button>
+      <button class="tab-btn" data-tab="productsTab">🥐 إدارة المنيو والأسعار (<span id="adminProductsCount">0</span>)</button>
+      <button class="tab-btn" data-tab="reviewsTab">⭐ التقييمات (<span id="adminReviewsCount">0</span>)</button>
+      <button class="tab-btn" data-tab="analyticsTab">🤖 تحليلات المبيعات بالذكاء الاصطناعي</button>
+    </div>
+
+    <!-- Tab 1: Orders -->
+    <div id="ordersTab" class="admin-tab-pane mt-6 space-y-4">
+      <div class="flex flex-wrap items-center justify-between gap-3 p-4 rounded-2xl border" style="background:var(--surface);border-color:var(--line)">
+        <div class="flex items-center gap-2">
+          <span class="text-sm font-bold">فلترة الحالة:</span>
+          <select id="orderStatusFilter" class="field !w-auto text-sm">
+            <option value="all">كل الحالات</option>
+            <option value="جديد">جديد 🟡</option>
+            <option value="جاري التجهيز">جاري التجهيز 🔵</option>
+            <option value="خرج للتوصيل">خرج للتوصيل 🚚</option>
+            <option value="تم التسليم بنجاح">تم التسليم بنجاح 🟢</option>
+          </select>
+        </div>
+        <div class="text-sm font-bold" style="color:var(--brown)">
+          إجمالي الإيرادات المسجلة: <span class="price text-base" id="adminTotalRevenue">0 ج.م</span>
+        </div>
+      </div>
+      <div class="overflow-x-auto rounded-2xl border" style="background:var(--surface);border-color:var(--line)">
+        <table class="w-full text-right text-sm">
+          <thead class="border-b" style="border-color:var(--line);background:var(--surface-alt)">
+            <tr>
+              <th class="p-3">رقم الطلب</th>
+              <th class="p-3">العميل والهاتف</th>
+              <th class="p-3">الأصناف والتحلية</th>
+              <th class="p-3">العنوان</th>
+              <th class="p-3">طريقة الدفع</th>
+              <th class="p-3">الإجمالي</th>
+              <th class="p-3">الحالة</th>
+              <th class="p-3">إجراءات</th>
+            </tr>
+          </thead>
+          <tbody id="adminOrdersTbody" class="divide-y" style="border-color:var(--line)"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Tab 2: Products Management -->
+    <div id="productsTab" class="admin-tab-pane mt-6 hidden space-y-4">
+      <div class="flex justify-between items-center">
+        <p class="text-sm" style="color:var(--muted)">تقدر تعدل أسعار المنتجات أو تضيف أصناف جديدة بسهولة من غير ما تلمس أي كود.</p>
+        <button class="btn text-sm" id="openAddProductBtn">➕ إضافة منتج جديد</button>
+      </div>
+      <div class="overflow-x-auto rounded-2xl border" style="background:var(--surface);border-color:var(--line)">
+        <table class="w-full text-right text-sm">
+          <thead class="border-b" style="border-color:var(--line);background:var(--surface-alt)">
+            <tr>
+              <th class="p-3">المنتج</th>
+              <th class="p-3">القسم</th>
+              <th class="p-3">السعر الحالي</th>
+              <th class="p-3">السعرات</th>
+              <th class="p-3">التوفر في المتجر</th>
+              <th class="p-3">إجراءات</th>
+            </tr>
+          </thead>
+          <tbody id="adminProductsTbody" class="divide-y" style="border-color:var(--line)"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Tab 3: Reviews Management -->
+    <div id="reviewsTab" class="admin-tab-pane mt-6 hidden space-y-4">
+      <div class="rounded-2xl border p-4" style="background:var(--surface);border-color:var(--line)">
+        <h3 class="font-black text-lg mb-2">إدارة تقييمات العملاء المسجلين</h3>
+        <p class="text-sm" style="color:var(--muted)">تظهر هنا جميع التقييمات التي تم إرسالها من العملاء المسجلين في المتجر.</p>
+      </div>
+      <div id="adminReviewsList" class="grid sm:grid-cols-2 gap-4"></div>
+    </div>
+
+    <!-- Tab 4: AI Sales Analytics -->
+    <div id="analyticsTab" class="admin-tab-pane mt-6 hidden space-y-6">
+      <!-- KPI Cards -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        <div class="p-4 rounded-2xl border" style="background:var(--surface);border-color:var(--line)">
+          <span class="text-xs font-bold" style="color:var(--muted)">إجمالي المبيعات</span>
+          <div class="text-2xl font-black mt-1" style="color:var(--rose)" id="kpiRevenue">0 ج.م</div>
+        </div>
+        <div class="p-4 rounded-2xl border" style="background:var(--surface);border-color:var(--line)">
+          <span class="text-xs font-bold" style="color:var(--muted)">إجمالي الطلبات</span>
+          <div class="text-2xl font-black mt-1" style="color:var(--brown)" id="kpiOrders">0</div>
+        </div>
+        <div class="p-4 rounded-2xl border" style="background:var(--surface);border-color:var(--line)">
+          <span class="text-xs font-bold" style="color:var(--muted)">متوسط قيمة الطلب</span>
+          <div class="text-2xl font-black mt-1" style="color:var(--green)" id="kpiAov">0 ج.م</div>
+        </div>
+        <div class="p-4 rounded-2xl border" style="background:var(--surface);border-color:var(--line)">
+          <span class="text-xs font-bold" style="color:var(--muted)">المنتج الأكثر طلباً</span>
+          <div class="text-sm font-black mt-1 truncate" style="color:var(--brown)" id="kpiTopItem">-</div>
+        </div>
+      </div>
+
+      <!-- Payment & Category Breakdown -->
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="p-5 rounded-3xl border" style="background:var(--surface);border-color:var(--line)">
+          <h4 class="font-black text-base mb-3" style="color:var(--brown)">💳 توزيع طرق الدفع المفضلة لدى العملاء</h4>
+          <div id="paymentBreakdown" class="space-y-3"></div>
+        </div>
+        <div class="p-5 rounded-3xl border" style="background:var(--surface);border-color:var(--line)">
+          <h4 class="font-black text-base mb-3" style="color:var(--brown)">🌾 المبيعات حسب تصنيفات المخبوزات والحلويات</h4>
+          <div id="categoryBreakdown" class="space-y-3"></div>
+        </div>
+      </div>
+
+      <!-- AI Sales Consultation Section -->
+      <div class="p-6 rounded-3xl border" style="background:linear-gradient(135deg, #1E293B, #0F172A);color:#F8FAFC">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-4">
+          <div>
+            <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300">محلل المبيعات الذكي • AI Sales Intelligence</span>
+            <h3 class="text-xl font-black mt-1 text-white">تحليل مبيعات مطبخ حلا وتقديم التوصيات</h3>
+          </div>
+          <button class="btn !bg-emerald-600 hover:!bg-emerald-500 text-white font-black" id="runAiAnalysisBtn">
+            ✨ بدء التحليل الذكي للبيانات
+          </button>
+        </div>
+
+        <div class="p-3 rounded-xl bg-slate-800/60 border border-slate-700 text-xs space-y-2 mb-4">
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <span>🔑 مفتاح Google Gemini API (اختياري - النظام يعمل أيضاً بمحلل داخلي ذكي):</span>
+            <div class="flex items-center gap-1.5 w-full sm:w-auto">
+              <input type="password" id="geminiApiKeyInput" class="px-2 py-1 rounded bg-slate-900 border border-slate-600 text-xs text-white w-48" placeholder="AIzaSy...">
+              <button class="px-2.5 py-1 rounded bg-slate-700 hover:bg-slate-600 text-xs font-bold" id="saveApiKeyBtn">حفظ المفتاح</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="aiAnalysisOutput" class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 min-h-36 text-sm leading-relaxed text-slate-200">
+          اضغط على زر <b>«بدء التحليل الذكي للبيانات»</b> ليقوم الذكاء الاصطناعي بدراسة جميع الطلبات المسجلة، وتحليل متوسط المشتريات، وتحديد الأصناف الأكثر ربحية، واقتراح أفكار لبوكسات جديدة وعروض ترويجية للعملاء.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Customer AI Calorie & Nutrition Assistant FAB -->
+<button class="ai-fab" id="toggleChatBtn" aria-label="مساعد السعرات والتغذية">
+  <span class="text-xl">🤖</span>
+  <span>خبير السعرات الذكي</span>
+</button>
+
+<!-- AI Chat Drawer -->
+<div class="chat-window" id="chatWindow">
+  <div class="page-back-bar">
+    <button type="button" class="back-pill back-to-store-btn">→ العودة للمتجر الرئيسي</button>
+    <span class="text-xs font-bold" style="color:var(--muted)">صفحة مستقلة • خبير السعرات الذكي</span>
+  </div>
+  <div class="page-card-wrap">
+  <div class="p-3.5 border-b flex items-center justify-between" style="border-color:var(--line);background:var(--surface-alt)">
+    <div class="flex items-center gap-2">
+      <div class="w-8 h-8 rounded-full bg-emerald-600 text-white grid place-items-center text-sm font-bold">🤖</div>
+      <div>
+        <b class="text-sm block leading-tight">مساعد حلا لحساب السعرات</b>
+        <span class="text-xs text-emerald-700 font-bold">● متصل وجاهز للرد فوراً</span>
+      </div>
+    </div>
+    <button class="cartbtn !p-1.5 text-xs" id="closeChatBtn">✕</button>
+  </div>
+  <div class="p-3 border-b flex gap-1.5 overflow-x-auto text-xs whitespace-nowrap" style="border-color:var(--line);background:var(--bg)">
+    <button class="chip !py-1 !px-2.5 text-xs quick-q" data-q="احسبلي سعرات وجبتي">🥗 احسب سعرات وجبتي</button>
+    <button class="chip !py-1 !px-2.5 text-xs quick-q" data-q="عايز سناك صحي أقل من 150 سعرة">🍫 سناك خفيف للدايت</button>
+    <button class="chip !py-1 !px-2.5 text-xs quick-q" data-q="ليه دقيق الحبة الكاملة أفضل؟">🌾 ميزة الحبة الكاملة</button>
+    <button class="chip !py-1 !px-2.5 text-xs quick-q" data-q="هل مناسب لمرضى السكر ومقاومة الإنسولين؟">🌿 مناسب للسكري؟</button>
+  </div>
+  <div id="chatMessages" class="flex-1 p-3 overflow-y-auto space-y-2.5 flex flex-col">
+    <div class="chat-bubble chat-bot">
+      أهلاً بيك في <b>حلويات حلا</b> 🌾❤️! أنا مساعدك الذكي لحساب السعرات واختيار ألذ الحلويات والمخبوزات المناسبة لنظامك الصحي. تحب تسأل عن سعرات منتج معين، ولا أرشحلك سناك صحي لليوم؟
+    </div>
+  </div>
+  <form id="chatForm" class="p-2.5 border-t flex gap-2" style="border-color:var(--line);background:var(--surface)">
+    <input type="text" id="chatInput" class="field text-sm" placeholder="اكتب سؤالك أو الوجبة اللي أكلتها..." required>
+    <button type="submit" class="btn !px-4 text-sm font-black">إرسال</button>
+  </form>
+  </div>
+</div>
+
+
+
+<div class="overlay" id="ov"></div>
+
+<!-- Cart Drawer -->
+<aside class="drawer" id="drawer" aria-label="سلة المشتريات" aria-hidden="false">
+  <div class="page-back-bar">
+    <button type="button" class="back-pill back-to-store-btn">→ العودة للمتجر وتكملة التسوق</button>
+    <span class="text-xs font-bold" style="color:var(--muted)">صفحة مستقلة • سلة المشتريات</span>
+  </div>
+  <div class="page-card-wrap">
+  <div class="flex items-center justify-between p-4 border-b" style="border-color:var(--line)">
+    <div>
+      <h3 class="font-black text-xl">🛒 سلتك الصحية</h3>
+      <span class="text-xs" style="color:var(--muted)">إجمالي السعرات المقدرة: <b id="totCal">0</b> سعرة</span>
+    </div>
+    <button id="closeCart" class="cartbtn" aria-label="إغلاق">✕</button>
+  </div>
+  <div id="items" class="flex-1 overflow-auto p-4 space-y-3"></div>
+  <div class="p-4 border-t space-y-1.5" style="border-color:var(--line);background:var(--surface)">
+    <div class="flex justify-between text-sm"><span>المجموع الفرعي</span><b id="sub">0</b></div>
+    <div class="flex justify-between text-sm"><span>رسوم التوصيل (تقديرية)</span><b id="del">0</b></div>
+    <div class="flex justify-between text-lg font-black pt-1 border-t" style="color:var(--rose);border-color:var(--line)"><span>الإجمالي</span><span id="tot">0</span></div>
+    <button class="btn w-full mt-3" id="checkout">متابعة إتمام الطلب 👈</button>
+  </div>
+  </div>
+</aside>
+
+<!-- Nutrition / Product Details Modal -->
+<div class="modal" id="detailModal" role="region" aria-labelledby="detailTitle">
+  <div class="page-back-bar"><button type="button" class="back-pill back-to-store-btn">→ العودة للمنيو</button><span class="text-xs font-bold" style="color:var(--muted)">صفحة مستقلة • تفاصيل الصنف والمكونات</span></div>
+  <div class="sheet">
+    <div class="flex justify-between items-center pb-3 border-b" style="border-color:var(--line)">
+      <h3 id="detailTitle" class="font-black text-xl" style="color:var(--brown)">تفاصيل المنتج</h3>
+      <button class="cartbtn" id="closeDetailModal" aria-label="إغلاق التفاصيل">✕</button>
+    </div>
+    <div id="detailBody" class="mt-4 space-y-3"></div>
+  </div>
+</div>
+
+<!-- Checkout Modal -->
+<div class="modal" id="modal" role="region" aria-labelledby="mt">
+  <div class="page-back-bar"><button type="button" class="back-pill" onclick="openStandalonePage('drawer')">→ العودة لسلة المشتريات</button><span class="text-xs font-bold" style="color:var(--muted)">صفحة مستقلة • إتمام الطلب والدفع</span></div>
+  <div class="sheet">
+    <div class="flex justify-between items-center pb-3 border-b" style="border-color:var(--line)">
+      <div>
+        <h3 id="mt" class="font-black text-xl" style="color:var(--brown)">بيانات التوصيل وطريقة الدفع</h3>
+        <p class="text-xs" style="color:var(--muted)">تأكيد الطلب سهل وسريع بدون الحاجة لإنشاء حساب مسبق</p>
+      </div>
+      <button class="cartbtn" id="closeModal" aria-label="إغلاق">✕</button>
+    </div>
+    <form id="form" class="mt-3" novalidate>
+      <label class="l" for="fn">الاسم بالكامل</label>
+      <input class="field" id="fn" placeholder="اكتب اسمك الكريم" required>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div>
+          <label class="l" for="ph">رقم الهاتف للاتصال</label>
+          <input class="field" id="ph" type="tel" inputmode="tel" dir="ltr" placeholder="012xxxxxxxx" required>
+        </div>
+        <div>
+          <label class="l" for="wa">رقم الواتساب</label>
+          <input class="field" id="wa" type="tel" inputmode="tel" dir="ltr" placeholder="لو نفس الرقم اتركه فارغاً">
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div>
+          <label class="l" for="sweetener">نوع التحلية المفضل</label>
+          <select class="field" id="sweetener">
+            <option value="عسل نحل طبيعي">🍯 عسل نحل طبيعي (الافتراضي)</option>
+            <option value="سكر ستيفيا (زيرو كالوري)">🌿 سكر ستيفيا (مناسب للدايت)</option>
+            <option value="دبس تمر طبيعي">🌴 تحلية بالتمر الطبيعي</option>
+            <option value="بدون تحلية (حادق)">🥖 بدون تحلية (للمعجنات)</option>
+          </select>
+        </div>
+        <div>
+          <label class="l" for="payMethod">طريقة الدفع المختارة</label>
+          <select class="field" id="payMethod">
+            <option value="محفظة إلكترونية (فودافون كاش)">📱 محفظة إلكترونية (فودافون كاش)</option>
+            <option value="الدفع عند الاستلام (كاش)">💵 الدفع عند الاستلام (كاش)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Payment Instructions Notice -->
+      <div id="payInstructionBox" class="p-3 rounded-xl mt-3 text-xs leading-relaxed border" style="background:var(--surface-alt);border-color:var(--line);color:var(--ink)">
+        📱 <b>الدفع عبر المحفظة الإلكترونية:</b> يرجى التحويل لرقم فودافون كاش <code>01285026373</code> وإرسال لقطة الشاشة أو التأكيد في محادثة الواتساب.
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div><label class="l" for="ar">المنطقة / الحي</label><input class="field" id="ar" placeholder="مثال: سموحة، سيدي جابر" required></div>
+        <div><label class="l" for="st">اسم الشارع وعمارة</label><input class="field" id="st" required></div>
+        <div><label class="l" for="fl">الدور</label><input class="field" id="fl"></div>
+        <div><label class="l" for="ap">رقم الشقة</label><input class="field" id="ap"></div>
+      </div>
+
+      <label class="l" for="nt">ملاحظات التحضير أو التوصيل</label>
+      <textarea class="field" id="nt" rows="2" placeholder="مثال: تسليم بعد الساعة 5، بدون مكسرات، زيادة ريحان في الميني بيتزا"></textarea>
+
+      <p id="err" class="text-sm mt-2 font-bold" style="color:var(--rose)" role="alert"></p>
+
+      <div class="flex flex-col sm:flex-row gap-2 mt-4">
+        <button type="submit" class="btn btn-wa flex-1 text-base">تأكيد الطلب وإرساله للواتساب 💬</button>
+        <button type="button" id="copyOrder" class="btn btn-ghost text-sm">📋 نسخ الفاتورة</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Order Receipt & Confirmation Modal -->
+<div class="modal" id="orderConfirmModal" role="region" aria-labelledby="ocTitle">
+  <div class="page-back-bar"><button type="button" class="back-pill back-to-store-btn">→ العودة للمتجر الرئيسي</button><span class="text-xs font-bold" style="color:var(--muted)">صفحة مستقلة • فاتورة وتأكيد الطلب</span></div>
+  <div class="sheet text-center">
+    <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-700 grid place-items-center text-3xl mx-auto mb-3">✓</div>
+    <h3 id="ocTitle" class="font-black text-2xl" style="color:var(--brown)">تم تسجيل طلبك بنجاح!</h3>
+    <p class="text-sm mt-1" style="color:var(--muted)">شكراً لاختيارك مطبخ حلويات حلا بالحبة الكاملة</p>
+    <div id="receiptContent" class="text-right p-4 rounded-2xl my-4 text-sm space-y-2 border" style="background:var(--surface);border-color:var(--line)"></div>
+    <div class="flex flex-col sm:flex-row gap-2 mt-2">
+      <button class="btn btn-wa flex-1" id="openWaReceiptBtn">فتح واتساب لتأكيد الطلب 💬</button>
+      <button class="btn btn-ghost" id="closeReceiptBtn">تم</button>
+    </div>
+  </div>
+</div>
+
+<!-- Admin Login Modal -->
+<div class="modal" id="adminLoginModal" role="region" aria-labelledby="alTitle">
+  <div class="page-back-bar"><button type="button" class="back-pill back-to-store-btn">→ العودة للمتجر الرئيسي</button><span class="text-xs font-bold" style="color:var(--muted)">صفحة مستقلة • بوابة دخول الإدارة</span></div>
+  <div class="sheet">
+    <div class="flex justify-between items-center pb-3 border-b" style="border-color:var(--line)">
+      <h3 id="alTitle" class="font-black text-xl" style="color:var(--brown)">تسجيل دخول الأدمن 🔐</h3>
+      <button class="cartbtn" id="closeAdminLoginModal">✕</button>
+    </div>
+    <form id="adminLoginForm" class="mt-4 space-y-3">
+      <p class="text-sm" style="color:var(--muted)">أدخل رمز المرور السري الخاص بإدارة مطبخ حلا للوصول إلى الطلبات والإعدادات.</p>
+      <label class="l" for="adminPinInput">رمز المرور السري</label>
+      <input type="password" id="adminPinInput" class="field text-center text-xl tracking-widest" placeholder="••••" maxlength="32" autocomplete="off" required autofocus>
+      <p id="adminLoginErr" class="text-sm font-bold text-rose-600 hidden">رمز المرور غير صحيح!</p>
+      <button type="submit" class="btn btn-admin w-full mt-2">دخول لوحة التحكم</button>
+    </form>
+  </div>
+</div>
+
+<!-- Add/Edit Product Modal -->
+<div class="modal" id="productModal" role="region" aria-labelledby="pmTitle">
+  <div class="page-back-bar"><button type="button" class="back-pill" onclick="showAdminDashboard()">→ العودة للوحة تحكم الإدارة</button><span class="text-xs font-bold" style="color:var(--muted)">صفحة مستقلة • إضافة وتعديل صنف</span></div>
+  <div class="sheet">
+    <div class="flex justify-between items-center pb-3 border-b" style="border-color:var(--line)">
+      <h3 id="pmTitle" class="font-black text-xl" style="color:var(--brown)">إضافة منتج جديد</h3>
+      <button class="cartbtn" id="closeProductModal">✕</button>
+    </div>
+    <form id="productForm" class="mt-3 space-y-2" novalidate>
+      <input type="hidden" id="prodEditId">
+      <label class="l" for="prodName">اسم الصنف</label>
+      <input class="field" id="prodName" placeholder="مثال: ميني كوكيز بالشوفان والعسل" required>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div>
+          <label class="l" for="prodCat">القسم</label>
+          <select class="field" id="prodCat">
+            <option value="1">كب كيك</option>
+            <option value="2">البراونيز</option>
+            <option value="3">أمريكان كوكيز</option>
+            <option value="4">كب السعادة</option>
+            <option value="5">المخبوزات</option>
+            <option value="6">إنجلش كيك (14 قطعة)</option>
+            <option value="7">قشطوطة</option>
+            <option value="8">السينابون</option>
+          </select>
+        </div>
+        <div>
+          <label class="l" for="prodPrice">السعر (ج.م)</label>
+          <input class="field" id="prodPrice" type="number" min="1" placeholder="150" required>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <label class="l" for="prodCal">السعرات المقدرة</label>
+          <input class="field" id="prodCal" type="number" min="0" placeholder="120" required>
+        </div>
+        <div>
+          <label class="l" for="prodUnit">الوحدة / المعيار</label>
+          <input class="field" id="prodUnit" placeholder="للقطعة / للعلبة" required>
+        </div>
+      </div>
+      <label class="l" for="prodBadge">الشارة الصحية المميزة</label>
+      <input class="field" id="prodBadge" placeholder="مثال: 🌾 حبة كاملة 100% أو 🍫 دارك 70%">
+      <label class="l" for="prodDesc">الوصف التعريفي</label>
+      <textarea class="field" id="prodDesc" rows="2" placeholder="مخبوز بدقيق القمح الكامل وخامات طبيعية..." required></textarea>
+      <label class="l" for="prodIngr">المكونات الغذائية</label>
+      <textarea class="field" id="prodIngr" rows="2" placeholder="دقيق قمح كامل، شوفان، عسل نحل، كاكاو خام..." required></textarea>
+      <div class="flex gap-2 pt-3">
+        <button type="submit" class="btn flex-1">حفظ المنتج</button>
+        <button type="button" class="btn btn-ghost" id="cancelProductBtn">إلغاء</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Customer Review / Login Modal -->
+<div class="modal" id="reviewModal" role="region" aria-labelledby="rmTitle">
+  <div class="page-back-bar"><button type="button" class="back-pill back-to-store-btn">→ العودة للمتجر الرئيسي</button><span class="text-xs font-bold" style="color:var(--muted)">صفحة مستقلة • إضافة تقييم عميل</span></div>
+  <div class="sheet">
+    <div class="flex justify-between items-center pb-3 border-b" style="border-color:var(--line)">
+      <div>
+        <h3 id="rmTitle" class="font-black text-xl" style="color:var(--brown)">تقييم حلويات حلا ⭐</h3>
+        <p class="text-xs" style="color:var(--muted)">يشترط تسجيل حساب العميل لإضافة تقييم موثق</p>
+      </div>
+      <button class="cartbtn" id="closeReviewModal">✕</button>
+    </div>
+    <form id="reviewForm" class="mt-4 space-y-3">
+      <div id="customerAuthBox">
+        <label class="l" for="revCustName">اسم العميل (الاسم الثلاثي أو المستعار)</label>
+        <input class="field" id="revCustName" placeholder="مثال: مريم حسام" required>
+        <label class="l" for="revCustPhone">رقم هاتف العميل (للتأكيد)</label>
+        <input class="field" id="revCustPhone" type="tel" dir="ltr" placeholder="012xxxxxxxx" required>
+      </div>
+      <div>
+        <label class="l">التقييم بالنجوم</label>
+        <div class="flex items-center gap-2 text-2xl text-yellow-500 cursor-pointer" id="starRatingBox">
+          <span data-star="1">★</span>
+          <span data-star="2">★</span>
+          <span data-star="3">★</span>
+          <span data-star="4">★</span>
+          <span data-star="5">★</span>
+        </div>
+        <input type="hidden" id="revRatingVal" value="5">
+      </div>
+      <div>
+        <label class="l" for="revComment">رأيك الصادق في الطعم والجودة</label>
+        <textarea class="field" id="revComment" rows="3" placeholder="احكي لنا عن تجربتك مع الميني بيتزا، البراونيز أو الكوكيز..." required></textarea>
+      </div>
+      <button type="submit" class="btn w-full">نشر التقييم في المتجر ✓</button>
+    </form>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer id="contact">
+  <div class="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-8 items-center">
+    <div class="flex items-center gap-3">
+      <span class="logo"><img src="images/hala_logo.png" alt="مطبخ حلا" class="w-full h-full object-cover"></span>
+      <div>
+        <b class="text-xl">حلويات حلا • Hala Sweets</b><br>
+        <span class="opacity-85 text-sm">حلا طعم يحلي حياتك • مصنوع بالحبة الكاملة 100%</span>
+      </div>
+    </div>
+    <div class="space-y-2 text-sm">
+      <div>📞 هاتف وواتساب: <a href="tel:+201285026373" dir="ltr" class="font-bold underline">+20 12 85026373</a></div>
+      <div class="flex flex-wrap gap-4 pt-1 font-bold">
+        <a href="https://www.facebook.com/MohamedElsagher0" target="_blank" rel="noopener noreferrer" class="underline">صفحة فيسبوك الرسمية ↗</a>
+        <a href="https://wa.me/201285026373" target="_blank" rel="noopener noreferrer" class="underline">طلب مباشر عبر واتساب ↗</a>
+      </div>
+    </div>
+    <div class="md:text-left">
+      <p class="font-bold">صُنع بحب وصحة في حلويات حلا 🌾❤️</p>
+      <p class="text-xs opacity-75 mt-1">طرق الدفع: فودافون كاش • الدفع نقداً عند الاستلام • @Matbakh_Hala</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script>window.INITIAL_PAGE = 'drawer';</script>
+<script src="config.js"></script>
+<script src="menu_data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
